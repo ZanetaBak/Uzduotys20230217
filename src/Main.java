@@ -187,35 +187,50 @@ public class Main {
         }
         System.out.println("Didesniu uz 150 yra: " + countS1);
 
-    // didesnius nei 275 spausdinti skliausteliuose []
+        // didesnius nei 275 spausdinti skliausteliuose []
 
 
         for (int i = 0; i < plants.length - 1; i++) {
             if (numbs[i] > 275) {
-                System.out.println("[ " + numbs [i]+ " ]" + " ");
+                System.out.println("[ " + numbs[i] + " ]" + " ");
             }
         }
 
-    // ==============S-2 uzduotis =========================
+        // ==============S-2 uzduotis =========================
 
         System.out.println("==================== S-2 užduotis ====================");
-    // Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos.
+        // Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki 3000, kurie dalijasi iš 77 be liekanos.
         // Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti.
 
+        System.out.println("Dalinasi be liekanos: ");
+        int[] numbsS2 = new int[3001];
+        for (int i = 1; i < 3001; i++) {
+            numbsS2[i] = i; // uzpildo masyva skaiciais nuo 1 (isk) iki 3000
 
+            if (numbsS2[i] % 77 == 0) {
+                System.out.print(numbsS2[i]);
+                System.out.print(", ");// kaip nespausdinti paskutinio kablelio?
+            }
+        }
 
+        System.out.println(" "); // jeigu nepridedu sito, tolimesni teksta spausdina toje pacioje eiluteje
 
+        // ==============S-3 uzduotis =========================
 
+        System.out.println("==================== S-3 užduotis ====================");
+        // Nupieškite kvadratą iš “*”, kurio kraštines sudaro 25“*”.
 
-
-
-
-
+            for (int i = 0; i < 25; i++) {
+                for (int j = 0; j < 25; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
 
 
 //=====================================
-        //failo pabaiga
+    //failo pabaiga
 
 
-    }
+}
 }
