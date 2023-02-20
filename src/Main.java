@@ -43,7 +43,7 @@ public class Main {
         System.out.println("==================== 4 užduotis ====================");
         // Atspausdinkite kiekvieną 3čio uždavinio augalą atskiroje eilutėje
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < plants.length; i++) {
             System.out.println(plants[i]);
         }
 
@@ -54,7 +54,7 @@ public class Main {
         // (atvirkščias ciklas).
 
 
-        for (int i = 10 - 1; i >= 0; i--) {
+        for (int i = plants.length - 1; i >= 0; i--) {
             System.out.println(plants[i]);
         }
 
@@ -178,9 +178,8 @@ public class Main {
         System.out.println(" "); // jeigu nepridedu sito, tolimesni teksta spausdina toje pacioje eiluteje
 
         // toliau skaiciuojam kiek yra didesniu uz 150
-
         int countS1 = 0;
-        for (int i = 0; i < plants.length - 1; i++) {// "-1" nes skaiciuojam nuo 0, neatemus ciklas kartotusi 301
+        for (int i = 0; i < numbs.length - 1; i++) {// "-1" nes skaiciuojam nuo 0, neatemus ciklas kartotusi 301
             if (numbs[i] > 150) {
                 countS1++;
             }
@@ -189,12 +188,27 @@ public class Main {
 
         // didesnius nei 275 spausdinti skliausteliuose []
 
-
-        for (int i = 0; i < plants.length - 1; i++) {
+        for (int i = 0; i < numbs.length - 1; i++) {
             if (numbs[i] > 275) {
                 System.out.println("[ " + numbs[i] + " ]" + " ");
             }
         }
+
+        // kitoks sprendimo variantas
+
+        for (int i = 0; i < 300; i++) {
+            int numbS1 = (int) Math.round(Math.random() * 300);
+
+            if (numbS1 > 275) {
+                System.out.print("[" + numbS1 + "] ");
+            } else {
+                System.out.print(numbS1 + " ");
+            }
+        }
+        //
+
+
+        System.out.println();
 
         // ==============S-2 uzduotis =========================
 
@@ -209,23 +223,157 @@ public class Main {
 
             if (numbsS2[i] % 77 == 0) {
                 System.out.print(numbsS2[i]);
-                System.out.print(", ");// kaip nespausdinti paskutinio kablelio?
+                System.out.print(", ");// kaip nespausdinti paskutinio kablelio? - naudoti string
             }
         }
 
         System.out.println(" "); // jeigu nepridedu sito, tolimesni teksta spausdina toje pacioje eiluteje
+//        System.out.println(numbsS2[0] + "kas cia");
 
-        // ==============S-3 uzduotis =========================
+        // kitoks sprendimo variantas
+        String row = "";
+        for (int i = 1; i < 3000; i++) {
+            if (i % 77 == 0) {
+                row += i + ", ";
+            }
+        }
 
+        System.out.println(row.substring(0, row.length() - 2) + ".");
+
+        // dar kitoks sprendimo variantas
+
+        row = "";
+        for (int i = 77; i < 3000; i += 77) {
+            row += i + ", ";
+        }
+
+        System.out.println(row.substring(0, row.length() - 2) + ".");
+
+// ==============S-3 uzduotis =========================
         System.out.println("==================== S-3 užduotis ====================");
         // Nupieškite kvadratą iš “*”, kurio kraštines sudaro 25“*”.
 
-            for (int i = 0; i < 25; i++) {
-                for (int j = 0; j < 25; j++) {
-                    System.out.print("*");
-                }
-                System.out.println();
+        for (int i = 0; i < 25; i++) {
+            for (int j = 0; j < 25; j++) {
+                System.out.print("*");
             }
+            System.out.println();
+        }
+
+
+        // ==============S-5 uzduotis =========================
+        System.out.println("==================== S-5 užduotis ====================");
+
+        // Metam monetą. Monetos kritimo rezultatą imituojam Math.random() funkcija, kur 0 yra herbas, o 1 - skaičius.
+        // Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas.
+        // Suprogramuokite tris skirtingus scenarijus kai monetos metimą stabdome:
+        //a.	Iškritus herbui;
+        // b.	Tris kartus iškritus herbui;
+        //c.	Tris kartus iš eilės iškritus herbui;
+
+        // "a"
+        while (true) {
+            if (Math.random() > 0.5) {
+                System.out.println("a: S");
+            } else {
+                System.out.println("a: H");
+                break;
+            }
+        }
+        System.out.println("-----------");
+
+        // "b"
+        int countS5b = 0;
+        while (true) {
+            if (Math.random() > 0.5) {
+                System.out.println("b: S");
+            } else {
+                countS5b++;
+                System.out.println("b: H");
+                if (countS5b >= 3) {
+                    break;
+                }
+            }
+        }
+        // "c" - nebaigtas
+        // int countS5c = 0;
+        //while (true) {
+        //  if (Math.random() > 0.5) {
+        //     System.out.println("c: S");
+        //} else {
+        //  countS5b++;
+        // System.out.println("c: H");
+        //if (countS5c >= 3){
+        //  break;
+        //}
+        //}
+        //}
+
+
+        // ==============S-6 uzduotis =========================
+        System.out.println("==================== S-6 užduotis ====================");
+
+        // Kazys ir Petras žaidžia šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, Kazys surenka taškų kiekį nuo 5 iki 25.
+        // Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: laimėtojo vardas”.
+        // Taškų kiekį generuokite funkcija Math.random(). Žaidimą laimi tas, kas greičiau surenka 222 taškus.
+        // Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
+
+
+        int kazioTaskai = 0;
+        int petroTaskai = 0;
+        int ak, bk, ap, bp;
+        ak = 5; // Kazio min taskai
+        bk = 25; // Kazio maz taskai
+        ap = 10; // Petro min taskai
+        bp = 20; // Petro max taskai
+
+       int countS8 = 0;
+
+       while (true) {
+        kazioTaskai += ak + (int) Math.round(Math.random() * (bk - ak));//16//14
+        petroTaskai += ap + (int) Math.round(Math.random() * (bp - ap));//20//7
+           if (kazioTaskai >= 222 || petroTaskai >= 222) {
+               System.out.print("Petro taskai: " + petroTaskai + " Kazio taskai: " + kazioTaskai);
+           }
+
+           if (petroTaskai >= 222) {
+               System.out.print(" Laimejo Petras");
+           }
+
+           if (kazioTaskai >= 222) {
+               System.out.print(" Laimejo Kazys");
+           }
+
+           if (kazioTaskai >= 222 || petroTaskai >= 222) {
+               break;
+           }
+       }
+
+
+
+
+      System.out.println();
+
+    // ==============S-8 uzduotis =========================
+        System.out.println("==================== S-8 užduotis ====================");
+
+        // Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami Math.random() funkcija.
+        // Vinies ilgis 8.5cm (pilnai sulenda į lentą).
+        //a.	“Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. Suskaičiuokite kiek reikia smūgių.
+        //b.	“Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, bet yra 50% tikimybė
+        // (pasinaudokite Math.random() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį.
+        // Suskaičiuokite kiek reikia smūgių.
+
+
+        
+
+
+
+
+
+
+
+
 
 
 //=====================================
