@@ -295,20 +295,22 @@ public class Main {
                 }
             }
         }
-        // "c" - nebaigtas
-        // int countS5c = 0;
-        //while (true) {
-        //  if (Math.random() > 0.5) {
-        //     System.out.println("c: S");
-        //} else {
-        //  countS5b++;
-        // System.out.println("c: H");
-        //if (countS5c >= 3){
-        //  break;
-        //}
-        //}
-        //}
+        System.out.println("-----------");
 
+        // "c"
+        int countS5c = 0;
+        while (true) {
+            if (Math.random() > 0.5) {
+                System.out.println("c: S");
+                countS5c = 0;
+            } else {
+                countS5c++;
+                System.out.println("c: H");
+                if (countS5c >= 3) {
+                    break;
+                }
+            }
+        }
 
         // ==============S-6 uzduotis =========================
         System.out.println("==================== S-6 užduotis ====================");
@@ -327,34 +329,32 @@ public class Main {
         ap = 10; // Petro min taskai
         bp = 20; // Petro max taskai
 
-       int countS8 = 0;
+        int countS8 = 0;
 
-       while (true) {
-        kazioTaskai += ak + (int) Math.round(Math.random() * (bk - ak));//16//14
-        petroTaskai += ap + (int) Math.round(Math.random() * (bp - ap));//20//7
-           if (kazioTaskai >= 222 || petroTaskai >= 222) {
-               System.out.print("Petro taskai: " + petroTaskai + " Kazio taskai: " + kazioTaskai);
-           }
+        while (true) {
+            kazioTaskai += ak + (int) Math.round(Math.random() * (bk - ak));//16//14
+            petroTaskai += ap + (int) Math.round(Math.random() * (bp - ap));//20//7
+            if (kazioTaskai >= 222 || petroTaskai >= 222) {
+                System.out.print("Petro taskai: " + petroTaskai + " Kazio taskai: " + kazioTaskai);
+            }
 
-           if (petroTaskai >= 222) {
-               System.out.print(" Laimejo Petras");
-           }
+            if (petroTaskai >= 222) {
+                System.out.print(" Laimejo Petras");
+            }
 
-           if (kazioTaskai >= 222) {
-               System.out.print(" Laimejo Kazys");
-           }
+            if (kazioTaskai >= 222) {
+                System.out.print(" Laimejo Kazys");
+            }
 
-           if (kazioTaskai >= 222 || petroTaskai >= 222) {
-               break;
-           }
-       }
-
-
+            if (kazioTaskai >= 222 || petroTaskai >= 222) {
+                break;
+            }
+        }
 
 
-      System.out.println();
+        System.out.println();
 
-    // ==============S-8 uzduotis =========================
+        // ==============S-8 uzduotis =========================
         System.out.println("==================== S-8 užduotis ====================");
 
         // Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami Math.random() funkcija.
@@ -364,9 +364,60 @@ public class Main {
         // (pasinaudokite Math.random() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį.
         // Suskaičiuokite kiek reikia smūgių.
 
+        //================8a====
+        System.out.println("==================== S-8a užduotis ====================");
 
-        
 
+        int smugisMin = 5;
+        int smugisMax = 20;
+        int countTotal = 0;
+
+        for (int i = 0; i < 5; i++) {
+            int count8a = 0;
+            int viniesIlgis = 85;
+            do {
+                int smugis = smugisMin + (int) (Math.random() * (smugisMax - smugisMin));
+                viniesIlgis -= smugis;
+                count8a++;
+                countTotal++;
+                System.out.println("Kalu " + (i + 1) + " - taja vini, " + count8a + " as smugis. Liko sukalti " + viniesIlgis + " mm");
+            }
+            while (viniesIlgis >= 0);
+            System.out.println("Prireike smugiu: " + count8a);
+
+        }
+        System.out.println("Viso 5 vinims sukalti prireike " + countTotal + " smugiu.");
+
+
+//================8b====
+        System.out.println("==================== S-8b užduotis ====================");
+
+
+        int smugisMin8b = 20;
+        int smugisMax8b = 30;
+        int countTotal8b = 0;
+
+        for (int j = 0; j < 5; j++) {
+            int count8b = 0;
+            int viniesIlgis8b = 85;
+            do {
+                if (Math.random() < 0.5) { // then the event occured
+                    int smugis8b = smugisMin8b + (int) (Math.random() * (smugisMax8b - smugisMin8b));
+                    viniesIlgis8b -= smugis8b;
+                    count8b++;
+                    countTotal8b++;
+                    System.out.println("Kalu " + (j + 1) + " - taja vini, " + count8b + " as smugis. Liko sukalti " + viniesIlgis8b + " mm");
+                }
+                else {
+                    count8b++;
+                    countTotal8b++;
+                    System.out.println("Nepataikiau i vini");
+                }
+            }
+                while (viniesIlgis8b >= 0) ;
+                System.out.println("Prireike smugiu: " + count8b);
+                    }
+        System.out.println("Viso 5 vinims sukalti prireike " + countTotal8b + " smugiu.");
 
 
 
@@ -377,8 +428,8 @@ public class Main {
 
 
 //=====================================
-    //failo pabaiga
+        //failo pabaiga
 
 
-}
+    }
 }
