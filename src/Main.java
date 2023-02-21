@@ -401,16 +401,14 @@ public class Main {
             int count8b = 0;
             int viniesIlgis8b = 85;
             do {
+                count8b++;
+                countTotal8b++;
                 if (Math.random() < 0.5) { // then the event occured
                     int smugis8b = smugisMin8b + (int) (Math.random() * (smugisMax8b - smugisMin8b));
                     viniesIlgis8b -= smugis8b;
-                    count8b++;
-                    countTotal8b++;
                     System.out.println("Kalu " + (j + 1) + " - taja vini, " + count8b + " as smugis. Liko sukalti " + viniesIlgis8b + " mm");
                 }
                 else {
-                    count8b++;
-                    countTotal8b++;
                     System.out.println("Nepataikiau i vini");
                 }
             }
